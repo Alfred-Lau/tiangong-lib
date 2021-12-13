@@ -10,3 +10,4 @@ export function isVideo(url:string):boolean {
     return MEDIA_REG.test(url)
 
 }
+
