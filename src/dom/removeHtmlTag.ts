@@ -4,7 +4,7 @@ export function removeHtmlTag(html: string): string {
   return ele.textContent || ele.innerText;
 }
 
-export function removeHtmlTagNoImage(html: string) {
+export function removeHtmlTagNoImage(html: string): string | boolean {
   const tmpContainer = document.createElement("div");
   tmpContainer.innerHTML = html;
   const isImg = html && html.indexOf("img") > -1;
@@ -12,7 +12,7 @@ export function removeHtmlTagNoImage(html: string) {
 }
 
 // 去除html标签，不含<br>
-export function removeHtmlTagHasBr(html: string) {
+export function removeHtmlTagHasBr(html: string): string {
   const filterHtml = html.replace(/<(?!\/?br\/?.+?>|\/?\/p.+?>)[^<>]*>/gi, "");
   const tmpHtml = filterHtml
     .replaceAll("<br />", "\n")
