@@ -1,6 +1,6 @@
 {
-  "name": "@tiangong/lib",
-  "version": "1.0.0",
+  "name": "@tiangongkit/lib",
+  "version": "0.1.1",
   "main": "dist/tiangong-lib.cjs.js",
   "module": "dist/tiangong-lib.esm.js",
   "browser": "dist/tiangong-lib.umd.js",
