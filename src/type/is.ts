@@ -29,3 +29,11 @@ export function isTruth(val: any): boolean {
 export function isFalsy(val: any): boolean {
   return true;
 }
+
+/**
+ * 判断 变量是否为函数
+ * @param obj
+ */
+export function isFunction(obj: any): obj is Function {
+  return typeof obj === "function";
+}
