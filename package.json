@@ -1,6 +1,7 @@
 {
   "name": "@tiangongkit/lib",
   "version": "0.1.2",
+  "private": true,
   "main": "dist/tiangong-lib.cjs.js",
   "module": "dist/tiangong-lib.esm.js",
   "browser": "dist/tiangong-lib.umd.js",
