@@ -10,3 +10,4 @@ export * as reg from "./reg";
 export * as types from "./type";
 export * as typeGym from "./type-gym";
 export * as util from "./util";
+export * as invariant from "./invariant";
