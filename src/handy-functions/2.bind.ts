@@ -33,5 +33,3 @@ export function bind_v1(ctx: any = window) {
 
   return resFn;
 }
-export function bind_v2(ctx: any = window) {}
-export function bind_v3(ctx: any = window) {}
