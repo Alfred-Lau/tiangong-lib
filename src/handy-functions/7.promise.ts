@@ -1,1 +1,1 @@
-export default function create() {}
+export default function promise() {}
