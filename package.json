@@ -17,6 +17,7 @@
     "@types/axios": "^0.14.0",
     "@types/jest": "^27.0.3",
     "@types/ms": "^0.7.30",
+    "parcel": "^2.0.1",
     "prettier": "^2.5.1",
     "rollup": "^1.0.0",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -31,6 +32,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "dev:html": "parcel ./test.html",
     "test": "jest",
     "pretest": "npm run build"
   },

@@ -23,8 +23,9 @@ function throttleFn(fn, wait: number = 500) {
   return retFn;
 }
 
-// 节流变量
-function throttleValue() {}
+// 节流变量:一段时间之后才允许修改某个变量
+
+function throttleValue(value, wait) {}
 
 export { throttleFn, throttleValue };
 
