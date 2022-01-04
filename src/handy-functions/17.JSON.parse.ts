@@ -11,11 +11,5 @@ export function parseV2(str: string) {
   return new Function(`return ${str}`)();
 }
 
-/**
- * TODO:
- * @param obj
- */
-export function stringify(obj: any) {}
-
 console.log(parse(JSON.stringify({ name: "ssss" })));
 console.log(parseV2(JSON.stringify({ name: "ssss" })));
