@@ -26,10 +26,8 @@ fn.length //3
 export function curry(fn, argument?) {
   let len = fn.length;
 
-  return function () {
-    const newArgs = Array.prototype.slice
-      .call(arguments)
-      .concat(argument || []);
+  return function (...args) {
+    const newArgs = Array.prototype.slice.call(args).concat(argument || []);
 
     if (newArgs.length < len) {
       //  参数还没没有搜集结束,继续搜集参数
