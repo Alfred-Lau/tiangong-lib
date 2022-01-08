@@ -16,5 +16,6 @@ export function isArray_v4(arr: any): arr is Array<unknown> {
 }
 
 /**
- * 不能使用 typeof 的原因： 因为是 object
+ * - 不能使用 typeof 的原因： 因为是 对于 数组，对象，null，都是返回 object
+ * - arr.toString 和 Object.prototype.toString.call 的区别: Array.prototype.toString 重写了 Object.prototype.toString 所以返回了 拼接起来的字符串
  */
