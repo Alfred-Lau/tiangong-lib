@@ -1,6 +1,6 @@
 import { isPlainObject } from "../type";
 
-// 这个是最佳做法
+// 这个是最佳做法，存在循环引用的问题
 export function deepClone(obj) {
   /**
    * 1. 简单对象直接赋值
@@ -22,6 +22,39 @@ export function deepClone(obj) {
 
   return ret;
 }
+
+/**
+ * 解决了循环引用的深拷贝
+ * @param obj
+ * @param map
+ *
+ * 参考：https://blog.csdn.net/cc18868876837/article/details/114918262
+ */
+export function deepCloneWithoutCycles(obj: any, map:WeakMap<any, any> = new WeakMap()) {
+
+  if (obj instanceof Date){
+    return Date
+  }
+
+  if (obj instanceof RegExp){
+    return RegExp
+  }
+
+  if (isPlainObject(obj)){
+    return obj
+  }
+
+  if (map && map.has(obj)){
+    return map.get(obj)
+  }
+
+
+
+
+}
+
+
+
 
 // 这个方法的实现有问题
 // export function deepCloneReduceVersion(obj: any) {
