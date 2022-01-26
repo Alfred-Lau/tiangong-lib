@@ -56,7 +56,7 @@ export function deepCloneWithoutCycles(
  * @param obj
  * @param cache
  */
-function deepClone(obj, cache = new WeakMap()) {
+function deepClone_v2(obj, cache = new WeakMap()) {
   if (typeof obj !== "object") return obj;
   if (obj === null) return obj;
   if (cache.get(obj)) return cache.get(obj); // 防止循环引用，程序进入死循环
