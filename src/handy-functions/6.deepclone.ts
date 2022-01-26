@@ -30,31 +30,49 @@ export function deepClone(obj) {
  *
  * 参考：https://blog.csdn.net/cc18868876837/article/details/114918262
  */
-export function deepCloneWithoutCycles(obj: any, map:WeakMap<any, any> = new WeakMap()) {
-
-  if (obj instanceof Date){
-    return Date
+export function deepCloneWithoutCycles(
+  obj: any,
+  map: WeakMap<any, any> = new WeakMap()
+) {
+  if (obj instanceof Date) {
+    return Date;
   }
 
-  if (obj instanceof RegExp){
-    return RegExp
+  if (obj instanceof RegExp) {
+    return RegExp;
   }
 
-  if (isPlainObject(obj)){
-    return obj
+  if (isPlainObject(obj)) {
+    return obj;
   }
 
-  if (map && map.has(obj)){
-    return map.get(obj)
+  if (map && map.has(obj)) {
+    return map.get(obj);
   }
-
-
-
-
 }
 
+/**
+ * TODO: 待调整
+ * @param obj
+ * @param cache
+ */
+function deepClone(obj, cache = new WeakMap()) {
+  if (typeof obj !== "object") return obj;
+  if (obj === null) return obj;
+  if (cache.get(obj)) return cache.get(obj); // 防止循环引用，程序进入死循环
+  if (obj instanceof Date) return new Date(obj);
+  if (obj instanceof RegExp) return new RegExp(obj);
 
-
+  // 找到所属原型上的constructor，所属原型上的constructor指向当前对象的构造函数
+  let cloneObj = new obj.constructor();
+  cache.set(obj, cloneObj); // 缓存拷贝的对象，用于处理循环引用的情况
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      cloneObj[key] = deepClone(obj[key], cache); // 递归拷贝
+    }
+  }
+  return cloneObj;
+}
 
 // 这个方法的实现有问题
 // export function deepCloneReduceVersion(obj: any) {
