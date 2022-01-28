@@ -4,8 +4,9 @@
 TODO
 - 自定义可读流可写流
 - 【！！！】体操练习
-- 可以取消的 Promise
 - 手写一个 promise
+- 【待整理】正则表达式整理：https://juejin.cn/post/7016871226899431431?utm_source=gold_browser_extension#heading-3
+- 【待整理】js 一行代码走天下：https://github.com/1milligram/1loc
 
 需要重点掌握的
 - 深浅拷贝完整版本

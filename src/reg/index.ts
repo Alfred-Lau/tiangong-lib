@@ -1,3 +1,7 @@
+/**
+ * 参考资料：https://juejin.cn/post/7016871226899431431?utm_source=gold_browser_extension#heading-3
+ */
+
 export const IS_MOBILE_REG = /\./g;
 export const IS_EMAIL_REG = /\./g;
 export const IS_CHINA_ID = /\./g;
