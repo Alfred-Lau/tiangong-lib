@@ -1,3 +1,9 @@
+/**
+ * 原型链继承
+ * @param name
+ * @constructor
+ */
+
 function Parent(name) {
   this.name = name;
 }
