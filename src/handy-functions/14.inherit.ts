@@ -26,3 +26,15 @@ let child = new Child("xiaoming", 16);
 console.log(child.name); // xiaoming
 child.eat(); // xiaoming is eating
 child.study(); // xiaoming is studying
+
+/**
+ * 借用构造函数实现继承
+ */
+
+/**
+ * 组合继承
+ */
+
+/**
+ * 寄生式组合继承
+ */
