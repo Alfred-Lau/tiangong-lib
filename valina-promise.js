@@ -160,9 +160,14 @@ Promise.defer = Promise.deferred = function () {
   return dfd;
 };
 
+Promise.prototype.catch = function () {};
+Promise.prototype.finally = function () {};
+
 Promise.resolve = function () {};
 Promise.reject = function () {};
 Promise.race = function () {};
 Promise.all = function () {};
+Promise.any = function () {};
+Promise.allSettled = function () {};
 
 module.exports = Promise;
