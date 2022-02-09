@@ -11,14 +11,43 @@ const REJECTED = Symbol("Promise#REJECTED");
  */
 
 function promise(fn) {
+  // 缓存状态
+  this.status = PENDING;
+  this.value = null;
+  this.error = null;
+
+  // 成功失败回调队列
+  this.onFulfilledCallbacks = [];
+  this.onRejectedCallbacks = [];
+
   const resolve = function (value) {
-    console.log(value);
+    if (this.status !== PENDING) {
+      return;
+    }
+    this.status = FULFILLED;
+    this.value = value;
   };
   const reject = function (reason) {
-    console.log(reason);
+    if (this.status !== PENDING) {
+      return;
+    }
+
+    this.status = REJECTED;
+    this.error = reason;
   };
-  fn(resolve, reject);
+
+  try {
+    fn(resolve, reject);
+  } catch (e) {
+    reject(e);
+  }
 }
+
+promise.prototype.then = function (resolveFn, rejectFn) {
+  console.log(this.value, this.reason);
+
+  if (resolveFn) resolveFn();
+};
 
 export default promise;
 
@@ -26,3 +55,5 @@ const p1 = new promise((resolve, reject) => {
   resolve({ name: "fenghuo" });
   reject("error");
 });
+
+p1.then((res) => console.log("response"));

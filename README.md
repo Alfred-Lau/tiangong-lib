@@ -9,9 +9,9 @@ TODO
 - 【待整理】js 一行代码走天下：https://github.com/1milligram/1loc
 
 需要重点掌握的
-- 深浅拷贝完整版本
+- 深浅拷贝完整版本 done
 - promise的完整版本，可以取消版本
-- 各类继承方式的实现
+- 各类继承方式的实现 done
 - 防抖 & 节流 小点
 - 原生的 TS Utility 的实现
 
@@ -21,6 +21,12 @@ TODO
 ### npm run dev:html
 
 在 test.html 中直接引用查看效果
+
+### 测试 promise 的执行
+
+```bash
+ promises-aplus-tests valina-promise.js
+```
 
 
 ## 其他
