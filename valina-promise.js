@@ -4,6 +4,8 @@
 
 // 这里是上面写的 Promise 全部代码
 
+const resolve = require("rollup-plugin-node-resolve");
+const call = require("./src/handy-functions/3.call");
 const PENDING = "pending";
 const FULFILLED = "fulfilled";
 const REJECTED = "rejected";
@@ -160,11 +162,33 @@ Promise.defer = Promise.deferred = function () {
   return dfd;
 };
 
-Promise.prototype.catch = function () {};
-Promise.prototype.finally = function () {};
+Promise.prototype.catch = function (onRejected) {
+  return this.then(null, onRejected);
+};
+Promise.prototype.finally = function (callback) {
+  this.then(
+    (value) => Promise.resolve(callback()).then((value) => value),
+    (reason) => Promise.resolve(callback()).then(() => throw reason)
+  );
+};
+Promise.resolve = function (value) {
+  if (value instanceof Promise) {
+    // 如果传入的值是 Promise 实例，那么直接返回原数据
+    return value;
+  }
 
-Promise.resolve = function () {};
-Promise.reject = function () {};
+  return new Promise((resolve, reject) => {
+    // 处理 thenable 的数据
+    if (value && value.then && typeof value.then === "function") {
+      value.then(resolve, reject);
+    } else {
+      resolve(value);
+    }
+  });
+};
+Promise.reject = function (reason) {
+  return new Promise((resolve, reject) => reject(reason));
+};
 Promise.race = function () {};
 Promise.all = function () {};
 Promise.any = function () {};
