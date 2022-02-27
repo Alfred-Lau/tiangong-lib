@@ -7,7 +7,7 @@ const REJECTED = Symbol("Promise#REJECTED");
  * 参考资料：
  * - https://juejin.cn/post/6945319439772434469#heading-0
  * - https://juejin.cn/post/6953452438300917790
- * - https://www.zhihu.com/question/453677175 [注意区别 Promsie.resolve 和 executor 中的 resolve 函数，它们不是同一个]
+ * - https://www.zhihu.com/question/453677175 [注意区别 promise.resolve 和 executor 中的 resolve 函数，它们不是同一个]
  */
 
 class MyPromise {
