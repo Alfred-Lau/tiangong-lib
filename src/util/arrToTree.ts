@@ -102,6 +102,8 @@ function arrayToTree_v3(items) {
   return result;
 }
 
+console.log("|||||", arrayToTree_v3(arr));
+
 ArrayToTree_recur(arr, 0, result);
 console.log(result);
 
