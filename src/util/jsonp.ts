@@ -6,7 +6,7 @@
 export interface jsonParams {
   url: string;
   params: object;
-  callbackName?: string;
+  callbackName: string;
 }
 
 export function jsonp(params: jsonParams) {
