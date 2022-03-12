@@ -50,3 +50,17 @@ console.log(add(1)(2)(3) + ""); // 6
 console.log(add(1, 2, 3)(4) + "");
 console.log(add(1)(2)(3)(4)(5) + ""); // 15
 console.log(add(2, 6)(1) + "");
+
+// TODO： 经典面试题：
+
+function add() {
+  const _args = [...arguments];
+  function fn() {
+    _args.push(...arguments);
+    return fn;
+  }
+  fn.toString = function () {
+    return _args.reduce((sum, cur) => sum + cur);
+  };
+  return fn;
+}

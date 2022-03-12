@@ -19,11 +19,12 @@ export function isNotNullOrUndefined(obj: any): boolean {
  * @param val
  */
 export function isTruth(val: any): boolean {
-  return false;
+  return !isFalsy(val);
 }
 
 /**
- * 判断对象为假值
+ * 判断对象为假值【Falsy的值有 八个，其他的都是真值】
+ * 参考地址：https://www.yuque.com/xiaoxiang-ofbro/bz4agy/zv8nkg#JJVPy
  * @param val
  */
 export function isFalsy(val: any): boolean {
@@ -66,3 +67,6 @@ export const isArray = (value) => toString.call(value) === "[object Array]";
 export const isFunction = (value) =>
   toString.call(value) === "[object Function]";
 export const isNull = (value) => toString.call(value) === "[object Null]";
+export const isPromise = (value) => toString.call(value) === "[object Promise]";
+
+//typeof 判断基础类型；instanceOf 和 constructor 判断引用类型

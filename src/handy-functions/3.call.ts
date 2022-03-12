@@ -25,3 +25,16 @@ export default function call(scope: any = window, ...rest) {
 
   return ret;
 }
+
+// TODO： 另一种实现
+Function.prototype.call = function (context = window, ...args) {
+  if (typeof this !== "function") {
+    throw new TypeError("Type Error");
+  }
+  const fn = Symbol("fn");
+  context[fn] = this;
+
+  const res = context[fn](...args);
+  delete context[fn];
+  return res;
+};

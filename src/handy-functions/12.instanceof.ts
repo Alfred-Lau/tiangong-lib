@@ -4,6 +4,9 @@
  * @param right
  */
 export default function instanceOf(left: any, right: any) {
+  // 基本数据类型都返回false
+  if (typeof left !== "object" || left === null) return false;
+
   // 左侧是 实例，获取 __proto__
   let proto = left.__proto__;
   // 右侧是原型
