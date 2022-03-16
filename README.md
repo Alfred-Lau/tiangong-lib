@@ -64,4 +64,19 @@ fahrenheitToCelsius(32);    // 0
 5. 检测对象是否为空
    该方法用于检测一个JavaScript对象是否为空：
    const isEmpty = obj => Reflect.ownKeys(obj).length === 0 && obj.constructor === Object;
-作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+异步可以作为一个专题：
+- 异步并发数限制
+- 异步串行 
+- 异步并行
+- 实现一个 Promise
+
+函数式编程也可以作为一个专题；
+- 科里化函数
+
+
+设计模式也可以作为一个专题；
+- 事件总线 & 发布订阅模式
+
+继承可以作为一个专题；
+- 寄生组合继承
